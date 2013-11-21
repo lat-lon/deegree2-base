@@ -65,7 +65,7 @@ function MenuBarTop(id) {
         //parent.controller.replace("http://www.deegree.org");
     }
 	
-	function openSaveContext() {
+    function openSaveContext() {
         var fiw = null;
         if ( controller.vSessionKeeper != null && parent.controller.vSessionKeeper.id == null ) {
             /* the user has to login before saving a new context to the user's folder */
@@ -78,12 +78,13 @@ function MenuBarTop(id) {
         fiw.focus();
     }
 	
-	function openLoadContext() {
+    function openLoadContext() {
         if ( controller.vSessionKeeper == null ) {
             var s = "control?rpc=<?xml version='1.0' encoding='UTF-8'?><methodCall>" +
                     "<methodName>mapClient:listContexts</methodName><params><param><value><struct>"+
                     "<member><name>sessionID</name><value><string>ID1</string></value></member>" +
                     "</struct></value></param></params></methodCall>";
+            fiw = window.open( s, "Load_and_manage_context", "width=550,height=300,left=100,top=100,scrollbars=yes");
         } else {
             /* load context from the user's folder */
             if ( controller.vSessionKeeper.id == null ) {
@@ -94,9 +95,9 @@ function MenuBarTop(id) {
                         "<methodName>mapClient:listContexts</methodName><params><param><value><struct>"+
                         "<member><name>sessionID</name><value><string>" + controller.vSessionKeeper.id + "</string></value></member>" +
                         "</struct></value></param></params></methodCall>";
+                fiw = window.open( s, "Load_and_manage_context", "width=550,height=300,left=100,top=100,scrollbars=yes");
             }
         }
-        fiw = window.open( s, "Load_and_manage_context", "width=550,height=300,left=100,top=100,scrollbars=yes");
         fiw.focus();
     }
 	
