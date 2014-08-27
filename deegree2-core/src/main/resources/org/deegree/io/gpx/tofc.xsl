@@ -71,6 +71,7 @@ xmlns:mtk="http://www.rigacci.org/gpx/MtkExtensions/v1">
           <gml:LineString srsName="EPSG:4979">
             <attribute name="gml:id"><value-of select="generate-id(.)"/></attribute>     
             <gml:posList>
+	    <attribute name="srsDimension">3</attribute> 
               <apply-templates select="gps:trkseg/gps:trkpt" />
             </gml:posList>
           </gml:LineString>
