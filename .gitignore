@@ -1,0 +1,20 @@
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Netbeans
+nbactions.xml
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
+bin/
