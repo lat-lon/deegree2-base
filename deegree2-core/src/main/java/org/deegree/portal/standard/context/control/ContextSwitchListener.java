@@ -155,6 +155,8 @@ public class ContextSwitchListener extends AbstractContextListener {
             // authorized user may will not be parsed correctly
             XMLFragment xml = getContext( mapContext, bbox, sid );
             newHtml = doTransformContext( xml );
+            newHtml = "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/loose.dtd\">"
+                                    + newHtml;
         } catch ( Exception e ) {
             LOG.logError( e.getMessage(), e );
             gotoErrorPage( StringTools.stackTraceToString( e ) );
