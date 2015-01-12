@@ -1130,7 +1130,7 @@ public class GMLFeatureAdapter {
                 }
             }
         } else if ( value instanceof URL ) {
-            if ( currentDepth == 0 || isReferenceType || customDepth == 0 ) {
+            if ( currentDepth == 0 || isReferenceType || customDepth == 0 || this.suppressXLinkOutput ) {
                 pw.print( '<' );
                 pw.print( propertyName.getPrefixedName() );
                 pw.print( " xlink:href=\"" );
