@@ -102,7 +102,7 @@ public class SearchNominatimListener extends AbstractListener {
         if ( charEnc == null ) {
             charEnc = Charset.defaultCharset().displayName();
         }
-        queryString = "q=" + URLEncoder.encode( queryString, "UTF-8" ) + "&format=xml&limit=100&viewbox=" + searchBox;
+        queryString = "q=" + URLEncoder.encode( queryString, "UTF-8" ) + "&format=xml&limit=100&bounded=1&viewbox=" + searchBox;
         LOG.logInfo( "Nominatim search query: ", address + "?" + queryString );
 
         HttpMethod method = HttpUtils.performHttpGet( address, queryString, 60000, null, null, null );
