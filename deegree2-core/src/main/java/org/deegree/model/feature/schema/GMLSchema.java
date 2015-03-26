@@ -223,7 +223,10 @@ public class GMLSchema extends XMLSchema {
             if ( elementDeclarations[i].isSubstitutionFor( ABSTRACT_FEATURE ) ) {
                 LOG.logDebug( "Yes." );
                 FeatureType featureType = buildFeatureType( elementDeclarations[i] );
-                featureTypeMap.put( featureType.getName(), featureType );
+                if ( featureType != null )
+                    featureTypeMap.put( featureType.getName(), featureType );
+                else
+                    LOG.logDebug( "FeatureType for " + elementDeclarations[i].getName() + " could not be found" );
             } else {
                 LOG.logDebug( "No." );
             }
@@ -266,6 +269,10 @@ public class GMLSchema extends XMLSchema {
         LOG.logDebug( "Building feature type from element declaration '" + element.getName() + "'..." );
         QualifiedName name = new QualifiedName( element.getName().getLocalName(), getTargetNamespace() );
         ComplexTypeDeclaration complexType = (ComplexTypeDeclaration) element.getType().getTypeDeclaration();
+        if ( complexType == null ) {
+            LOG.logWarning( "Could not find type definition for element " + name );
+            return null;
+        }
         ElementDeclaration[] subElements = complexType.getElements();
         PropertyType[] properties = new PropertyType[subElements.length];
         for ( int i = 0; i < properties.length; i++ ) {
