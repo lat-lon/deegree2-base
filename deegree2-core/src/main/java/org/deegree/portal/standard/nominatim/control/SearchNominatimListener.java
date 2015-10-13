@@ -87,6 +87,7 @@ public class SearchNominatimListener extends AbstractListener {
                             throws IOException {
 
         String address = getInitParameter( "address" );
+        String key = getInitParameter( "key" );
         String queryString = (String) event.getParameter().get( "QUERYSTRING" );
         String searchBox = null;
         try {
@@ -102,14 +103,17 @@ public class SearchNominatimListener extends AbstractListener {
         if ( charEnc == null ) {
             charEnc = Charset.defaultCharset().displayName();
         }
-        queryString = "q=" + URLEncoder.encode( queryString, "UTF-8" ) + "&format=xml&limit=100&bounded=1&viewbox=" + searchBox;
+        queryString = "q=" + URLEncoder.encode( queryString, "UTF-8" ) + "&format=xml&limit=100&bounded=1&viewbox="
+                      + searchBox;
+        if ( key != null && key.length() > 0 )
+            queryString = queryString + "&key=" + key;
         LOG.logInfo( "Nominatim search query: ", address + "?" + queryString );
 
         HttpMethod method = HttpUtils.performHttpGet( address, queryString, 60000, null, null, null );
         InputStreamReader isr = new InputStreamReader( method.getResponseBodyAsStream(), "UTF-8" );
         XMLFragment xml = new XMLFragment();
         try {
-            xml.load( isr, address );            
+            xml.load( isr, address );
         } catch ( Exception e ) {
             LOG.logError( e.getMessage(), e );
             ExceptionBean eb = new ExceptionBean( getClass().getName(), e.getMessage() );
