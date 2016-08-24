@@ -56,6 +56,10 @@
         <enabled>true</enabled>
       </snapshots>
     </repository>
+    <repository>
+      <id>latlon-repo</id>
+      <url>http://repo.lat-lon/nexus/content/groups/public/</url>
+    </repository>
   </repositories>
   
   <build>
@@ -395,12 +399,5 @@
       <url>http://repo.lat-lon/nexus/content/repositories/ndsmleeportal-snapshot/</url>
     </snapshotRepository>
   </distributionManagement>
-
-   <repositories>
-    <repository>
-      <id>latlon-repo</id>
-      <url>http://repo.lat-lon/nexus/content/groups/public/</url>
-    </repository>
-  </repositories>
 
 </project>
