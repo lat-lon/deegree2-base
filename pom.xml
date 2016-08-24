@@ -387,13 +387,20 @@
 
   <distributionManagement>
     <repository>
-      <id>latlon-releases</id>
-      <url>http://repo.lat-lon/nexus/content/repositories/releases/</url>
+      <id>ndsmleeportal-releases</id>
+      <url>http://repo.lat-lon/nexus/content/repositories/ndsmleeportal-release/</url>
     </repository>
     <snapshotRepository>
-      <id>latlon-snapshots</id>
-      <url>http://repo.lat-lon/nexus/content/repositories/snapshots/</url>
+      <id>ndsmleeportal-snapshots</id>
+      <url>http://repo.lat-lon/nexus/content/repositories/ndsmleeportal-snapshot/</url>
     </snapshotRepository>
   </distributionManagement>
+
+   <repositories>
+    <repository>
+      <id>latlon-repo</id>
+      <url>http://repo.lat-lon/nexus/content/groups/public/</url>
+    </repository>
+  </repositories>
 
 </project>
