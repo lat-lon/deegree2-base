@@ -71,6 +71,7 @@ public class MapView {
 
     private static final ILogger LOG = LoggerFactory.getLogger( MapView.class );
 
+    static final double DEFAULT_PIXEL_SIZE = 0.00028;
     private String name = null;
 
     private HashMap<String, Theme> themes = null;
@@ -89,7 +90,7 @@ public class MapView {
 
     private double scale;
 
-    private double pixelsize = 0.00028;
+    private double pixelsize = DEFAULT_PIXEL_SIZE;
 
     private GeoTransform projection = new WorldToScreenTransform();
 

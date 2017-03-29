@@ -376,8 +376,9 @@ public class Theme {
         try {
             // instance of RasterLayer
             RasterLayer rl = (RasterLayer) layer;
+            double pixelSize =  parent != null ? parent.getPixelSize() : MapView.DEFAULT_PIXEL_SIZE;
             DisplayElement[] de = fac.createDisplayElement( rl.getRaster(), styles, rl.getRequest(),
-                                                            parent.getPixelSize() );
+                                                            pixelSize );
             for ( int k = 0; k < de.length; k++ ) {
                 displayElements.add( de[k] );
             }
