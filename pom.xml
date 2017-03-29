@@ -8,9 +8,10 @@
   <packaging>pom</packaging>
 
   <scm>
-    <connection>scm:svn:http://svn.wald.intevation.org/svn/deegree/deegree2/deegree2-base/trunk</connection>
-    <developerConnection>scm:svn:svn+ssh://svn.wald.intevation.org/deegree/deegree2/deegree2-base/trunk</developerConnection>
-    <url>http://svn.wald.intevation.org/svn/deegree/deegree2/deegree2-base/trunk</url>
+    <connection>scm:git:git@github.com:lat-lon/deegree2-base.git</connection>
+    <developerConnection>scm:git:git@github.com:lat-lon/deegree2-base.git</developerConnection>
+    <url>https://github.com/lat-lon/deegree2-base</url>
+    <tag>HEAD</tag>
   </scm>
 
   <modules>
@@ -80,7 +81,6 @@
          <version>2.1</version>
          <configuration>
            <preparationGoals>clean install</preparationGoals>
-           <tagBase>svn+ssh://svn.wald.intevation.org/deegree/deegree2/deegree2-base/tags</tagBase>
            <autoVersionSubmodules>true</autoVersionSubmodules>
            <arguments>-e</arguments>
          </configuration>
@@ -402,11 +402,11 @@
   <distributionManagement>
     <repository>
       <id>deegree-releases</id>
-      <url>http://repo.deegree.org/content/repositories/releases/</url>
+      <url>http://repo.lat-lon/nexus/content/repositories/wuppertal-releases/</url>
     </repository>
     <snapshotRepository>
       <id>deegree-snapshots</id>
-      <url>http://repo.deegree.org/content/repositories/snapshots/</url>
+      <url>http://repo.lat-lon/nexus/content/repositories/wuppertal-snapshots/</url>
     </snapshotRepository>
   </distributionManagement>
 
