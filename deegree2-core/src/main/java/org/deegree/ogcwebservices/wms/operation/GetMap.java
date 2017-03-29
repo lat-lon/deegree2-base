@@ -224,12 +224,16 @@ public class GetMap extends WMSRequestBase {
             lys[0] = PrintMap.createLayer( layer, "$DEFAULT" );
         }
         if ( gmr != null && gmr.getLayers() != null && !( gmr.getLayers()[0].getName().equals( "%default%" ) ) ) {
-            lys = gmr.getLayers();
-            for ( int i = 0; i < lys.length; i++ ) {
-                String styleName = lys[i].getStyleName();
-                if ( styleName == null || "$DEFAULT".equals(  styleName  ) ) {
-                    lys[i].styleName = request.getLayers()[0].getStyleName();
+            Layer[] layersFromGmr = gmr.getLayers();
+            lys = new GetMap.Layer[layersFromGmr.length];
+            for ( int i = 0; i < layersFromGmr.length; i++ ) {
+                String layerName = layersFromGmr[i].getName();
+                String styleNameFromGmr = layersFromGmr[i].getStyleName();
+                String styleName = styleNameFromGmr;
+                if ( styleNameFromGmr == null || "$DEFAULT".equals(  styleNameFromGmr  ) ) {
+                    styleName = request.getLayers()[0].getStyleName();
                 }
+                lys[i] = PrintMap.createLayer( layerName, styleName );
             }
         }
         Color bgColor = request.getBGColor();
