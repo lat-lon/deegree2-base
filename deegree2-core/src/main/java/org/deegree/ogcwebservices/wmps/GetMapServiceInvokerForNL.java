@@ -165,7 +165,7 @@ class GetMapServiceInvokerForNL extends Thread {
                     if ( style != null ) {
                         styleName = style.getName();
                     }
-                    request = GetMap.createGetMapRequest( this.datasource, handler.request, styleName, layer.getName() );
+                    request = GetMap.createGetMapRequest( (RemoteWMSDataSource) this.datasource, handler.request, styleName, layer.getName() );
                     break;
                 }
                 }

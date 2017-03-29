@@ -84,7 +84,6 @@ import org.deegree.ogcwebservices.wmps.operation.PrintMap;
 import org.deegree.ogcwebservices.wms.InvalidCRSException;
 import org.deegree.ogcwebservices.wms.InvalidFormatException;
 import org.deegree.ogcwebservices.wms.InvalidSRSException;
-import org.deegree.ogcwebservices.wms.configuration.AbstractDataSource;
 import org.deegree.ogcwebservices.wms.configuration.RemoteWMSDataSource;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -207,9 +206,9 @@ public class GetMap extends WMSRequestBase {
      * @param layer
      * @return GetMap request object
      */
-    public static GetMap createGetMapRequest( AbstractDataSource ds, GetMap request, String style, String layer ) {
+    public static GetMap createGetMapRequest( RemoteWMSDataSource ds, GetMap request, String style, String layer ) {
 
-        GetMap gmr = ( (RemoteWMSDataSource) ds ).getGetMapRequest();
+        GetMap gmr = ds.getGetMapRequest();
 
         String format = request.getFormat();
 
@@ -217,8 +216,7 @@ public class GetMap extends WMSRequestBase {
             format = gmr.getFormat();
         }
 
-        GetMap.Layer[] lys = null;
-        lys = new GetMap.Layer[1];
+        GetMap.Layer[] lys = new GetMap.Layer[1];
 
         if ( style != null ) {
             lys[0] = PrintMap.createLayer( layer, style );
@@ -227,6 +225,12 @@ public class GetMap extends WMSRequestBase {
         }
         if ( gmr != null && gmr.getLayers() != null && !( gmr.getLayers()[0].getName().equals( "%default%" ) ) ) {
             lys = gmr.getLayers();
+            for ( int i = 0; i < lys.length; i++ ) {
+                String styleName = lys[i].getStyleName();
+                if ( styleName == null || "$DEFAULT".equals(  styleName  ) ) {
+                    lys[i].styleName = request.getLayers()[0].getStyleName();
+                }
+            }
         }
         Color bgColor = request.getBGColor();
         if ( gmr != null && gmr.getBGColor() != null ) {
@@ -276,6 +280,17 @@ public class GetMap extends WMSRequestBase {
                              tranparency, bgColor, request.getExceptions(), time, null, null, vsp );
 
         return gmr;
+    }
+
+
+    private static Layer retrieveLayerByName( GetMap request, String layerName ){
+        Layer[] requestLayers = request.getLayers();
+        for ( int j = 0; j < requestLayers.length; j++ ) {
+            if ( layerName.equals( requestLayers[j].getName() ) ) {
+                return requestLayers[j];
+            }
+        }
+        return null;
     }
 
     /**

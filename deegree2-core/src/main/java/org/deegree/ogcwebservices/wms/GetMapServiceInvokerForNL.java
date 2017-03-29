@@ -199,8 +199,8 @@ public class GetMapServiceInvokerForNL extends GetMapServiceInvoker implements C
                 styleName = style.getName();
             }
 
-            OGCWebServiceRequest request = GetMap.createGetMapRequest( datasource, handler.getRequest(), styleName,
-                                                                       layer.getName() );
+            GetMap request = GetMap.createGetMapRequest( (RemoteWMSDataSource) datasource, handler.getRequest(), styleName,
+                                                         layer.getName() );
             LOG.logDebug( "GetMap request: " + request.toString() );
             return new DoServiceTask<Object>( datasource.getOGCWebService(), request );
         }

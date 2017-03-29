@@ -99,6 +99,7 @@ import org.deegree.ogcwebservices.wms.GetMapServiceInvokerForNL.WMSExceptionFrom
 import org.deegree.ogcwebservices.wms.capabilities.ScaleHint;
 import org.deegree.ogcwebservices.wms.configuration.AbstractDataSource;
 import org.deegree.ogcwebservices.wms.configuration.DatabaseDataSource;
+import org.deegree.ogcwebservices.wms.configuration.RemoteWMSDataSource;
 import org.deegree.ogcwebservices.wms.configuration.WMSConfigurationType;
 import org.deegree.ogcwebservices.wms.configuration.WMSConfiguration_1_3_0;
 import org.deegree.ogcwebservices.wms.configuration.WMSDeegreeParams;
@@ -662,7 +663,8 @@ public class DefaultGetMapHandler implements GetMapHandler {
 
         us = layer.getStyle( styleName );
 
-        if ( us == null && !( styleName.startsWith( "default" ) ) && !( styleName.startsWith( "$DEFAULT" ) ) ) {
+        if ( us == null && !( styleName.startsWith( "default" ) ) && !( styleName.startsWith( "$DEFAULT" ) )
+             && !( layer.getDataSource().length == 1 && layer.getDataSource()[0] instanceof RemoteWMSDataSource ) ) {
             String s = Messages.getMessage( "WMS_STYLENOTDEFINED", styleName, layer );
             throw new StyleNotDefinedException( s );
         }

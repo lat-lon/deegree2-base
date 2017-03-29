@@ -976,7 +976,7 @@ public class WMSConfigurationDocument extends WMSCapabilitiesDocument {
 
         StringBuffer sd = new StringBuffer( 1000 );
         sd.append( "REQUEST=GetMap&LAYERS=%default%&" );
-        sd.append( "STYLES=&SRS=EPSG:4326&BBOX=0,0,1,1&WIDTH=1&" );
+        sd.append( "SRS=EPSG:4326&BBOX=0,0,1,1&WIDTH=1&" );
         sd.append( "HEIGHT=1&FORMAT=%default%" );
         Map<String, String> map1 = KVP2Map.toMap( sd.toString() );
         String s = XMLTools.getRequiredNodeAsString( node, "./deegreewms:FilterCondition/deegreewms:WMSRequest",
