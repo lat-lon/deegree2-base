@@ -7,7 +7,7 @@
   <parent>
     <groupId>org.deegree2</groupId>
     <artifactId>deegree2-base</artifactId>
-    <version>2.6-pre2-SNAPSHOT-wuppertal-1-SNAPSHOT</version>
+    <version>2.6-pre2-SNAPSHOT-wuppertal-1</version>
   </parent>
   <profiles>
     <profile>
