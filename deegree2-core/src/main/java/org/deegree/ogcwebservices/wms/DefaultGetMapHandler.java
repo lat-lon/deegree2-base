@@ -664,11 +664,21 @@ public class DefaultGetMapHandler implements GetMapHandler {
         us = layer.getStyle( styleName );
 
         if ( us == null && !( styleName.startsWith( "default" ) ) && !( styleName.startsWith( "$DEFAULT" ) )
-             && !( layer.getDataSource().length == 1 && layer.getDataSource()[0] instanceof RemoteWMSDataSource ) ) {
+             && atLeastOneLayerIsNotARemoteWMS( layer ) ) {
             String s = Messages.getMessage( "WMS_STYLENOTDEFINED", styleName, layer );
             throw new StyleNotDefinedException( s );
         }
         return us;
+    }
+
+    private boolean atLeastOneLayerIsNotARemoteWMS( org.deegree.ogcwebservices.wms.capabilities.Layer layer ) {
+        AbstractDataSource[] dataSources = layer.getDataSource();
+        for ( AbstractDataSource dataSource : dataSources ) {
+            if ( !( dataSource instanceof RemoteWMSDataSource ) ) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
