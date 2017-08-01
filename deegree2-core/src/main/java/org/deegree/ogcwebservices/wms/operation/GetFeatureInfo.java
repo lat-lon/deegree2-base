@@ -482,7 +482,7 @@ public class GetFeatureInfo extends WMSRequestBase {
             throw new OGCWebServiceException( "Operations can't be expressed as HTTP GET request " );
         }
 
-        StringBuffer sb = new StringBuffer( "service=WMS" );
+        StringBuffer sb = new StringBuffer( "SERVICE=WMS" );
 
         if ( getVersion().compareTo( "1.0.0" ) <= 0 ) {
             sb.append( "&VERSION=" + getVersion() + "&REQUEST=feature_info" );
@@ -561,16 +561,17 @@ public class GetFeatureInfo extends WMSRequestBase {
             Iterator<String> iterator = getVendorSpecificParameters().keySet().iterator();
             while ( iterator.hasNext() ) {
                 String key = iterator.next();
-                String value = getVendorSpecificParameters().get( key );
-                try {
-                    value = URLEncoder.encode( value, CharsetUtils.getSystemCharset() );
-                } catch ( UnsupportedEncodingException e ) {
-                    // system encoding should be supported...
+                if( !"service".equalsIgnoreCase( key ) ) {
+                    String value = getVendorSpecificParameters().get( key );
+                    try {
+                        value = URLEncoder.encode( value, CharsetUtils.getSystemCharset() );
+                    } catch ( UnsupportedEncodingException e ) {
+                        // system encoding should be supported...
+                    }
+                    sb.append( '&' ).append( key ).append( '=' ).append( value );
                 }
-                sb.append( '&' ).append( key ).append( '=' ).append( value );
             }
         }
-
 
         return sb.toString();
     }
