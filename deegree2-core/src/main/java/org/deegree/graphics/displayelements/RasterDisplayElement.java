@@ -208,10 +208,10 @@ public class RasterDisplayElement extends AbstractDisplayElement {
             try {
                 if ( doesScaleConstraintApply( scale ) ) {
                     Envelope env = gc.getEnvelope();
-                    int minx = (int) ( projection.getDestX( env.getMin().getX() ) );
-                    int maxy = (int) ( projection.getDestY( env.getMin().getY() ) );
-                    int maxx = (int) ( projection.getDestX( env.getMax().getX() ) );
-                    int miny = (int) ( projection.getDestY( env.getMax().getY() ) );
+                    int minx = (int) Math.round( ( projection.getDestX( env.getMin().getX() ) ) );
+                    int maxy = (int) Math.round( ( projection.getDestY( env.getMin().getY() ) ) );
+                    int maxx = (int) Math.round( ( projection.getDestX( env.getMax().getX() ) ) );
+                    int miny = (int) Math.round( ( projection.getDestY( env.getMax().getY() ) ) );
 
                     if ( gc instanceof ImageGridCoverage ) {
                         ImageGridCoverage igc = (ImageGridCoverage) gc;
