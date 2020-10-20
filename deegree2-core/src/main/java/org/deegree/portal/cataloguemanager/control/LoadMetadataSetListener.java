@@ -75,7 +75,7 @@ public class LoadMetadataSetListener extends AbstractMetadataListener {
 
     private static ILogger LOG = LoggerFactory.getLogger( LoadMetadataSetListener.class );
 
-    private static String GRBID = "request=GetRecordById&OUTPUTSCHEMA=http://www.isotc211.org/2005/gmd&service=CSW&version=2.0.2&ID=";
+    private static String GRBID = "request=GetRecordById&OUTPUTSCHEMA=http://www.isotc211.org/2005/gmd&ELEMENTSETNAME=FULL&service=CSW&version=2.0.2&ID=";
 
     private static String PARAM_ID = "ID";
 
