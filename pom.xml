@@ -56,6 +56,14 @@
         <enabled>true</enabled>
       </snapshots>
     </repository>
+    <repository>
+      <id>deegree-repo-3rd</id>
+      <url>http://repo.deegree.org/content/repositories/thirdparty/</url>
+    </repository>
+    <repository>
+      <id>jboss-3rd</id>
+      <url>https://repository.jboss.org/nexus/content/repositories/thirdparty-releases</url>
+    </repository>
   </repositories>
 
   <pluginRepositories>
@@ -92,6 +100,9 @@
         <configuration>
           <source>1.6</source>
           <target>1.6</target>
+          <compilerArgument>
+            -XDignore.symbol.file
+          </compilerArgument>
         </configuration>
       </plugin>
       <plugin>
@@ -306,7 +317,7 @@
         <version>0.9.7</version>
       </dependency>
       <dependency>
-        <groupId>stringtree</groupId>
+        <groupId>org.stringtree</groupId>
         <artifactId>stringtree-json</artifactId>
         <version>2.0.9</version>
       </dependency>

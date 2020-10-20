@@ -117,7 +117,7 @@
           <artifactId>jasperreports</artifactId>
         </exclusion>
         <exclusion>
-          <groupId>stringtree</groupId>
+          <groupId>org.stringtree</groupId>
           <artifactId>stringtree-json</artifactId>
         </exclusion>
         <exclusion>

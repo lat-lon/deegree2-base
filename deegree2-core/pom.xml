@@ -247,7 +247,7 @@
       </exclusions>
     </dependency>
     <dependency>
-      <groupId>stringtree</groupId>
+      <groupId>org.stringtree</groupId>
       <artifactId>stringtree-json</artifactId>
     </dependency>
     <dependency>
