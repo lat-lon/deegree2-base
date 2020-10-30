@@ -8,9 +8,9 @@
   <packaging>pom</packaging>
 
   <scm>
-    <connection>scm:svn:http://svn.wald.intevation.org/svn/deegree/deegree2/deegree2-base/trunk</connection>
-    <developerConnection>scm:svn:svn+ssh://svn.wald.intevation.org/deegree/deegree2/deegree2-base/trunk</developerConnection>
-    <url>http://svn.wald.intevation.org/svn/deegree/deegree2/deegree2-base/trunk</url>
+    <connection>scm:git:git@github.com:lat-lon/deegree2-base.git</connection>
+    <developerConnection>scm:git:git@github.com:lat-lon/deegree2-base.git</developerConnection>
+    <url>https://github.com/lat-lon/deegree2-base</url>
   </scm>
 
   <modules>
