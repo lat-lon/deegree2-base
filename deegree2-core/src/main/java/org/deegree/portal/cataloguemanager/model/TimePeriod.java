@@ -26,8 +26,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element ref="{http://www.opengis.net/gml}beginPosition"/>
- *         &lt;element ref="{http://www.opengis.net/gml}endPosition"/>
+ *         &lt;element ref="{http://www.opengis.net/gml/3.2}beginPosition"/>
+ *         &lt;element ref="{http://www.opengis.net/gml/3.2}endPosition"/>
  *       &lt;/sequence>
  *       &lt;attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}string" />
  *     &lt;/restriction>
@@ -42,14 +42,14 @@ import javax.xml.bind.annotation.XmlType;
     "beginPosition",
     "endPosition"
 })
-@XmlRootElement(name = "TimePeriod", namespace = "http://www.opengis.net/gml")
+@XmlRootElement(name = "TimePeriod", namespace = "http://www.opengis.net/gml/3.2")
 public class TimePeriod {
 
-    @XmlElement(namespace = "http://www.opengis.net/gml", required = true)
+    @XmlElement(namespace = "http://www.opengis.net/gml/3.2", required = true)
     protected String beginPosition;
-    @XmlElement(namespace = "http://www.opengis.net/gml", required = true)
+    @XmlElement(namespace = "http://www.opengis.net/gml/3.2", required = true)
     protected String endPosition;
-    @XmlAttribute(namespace = "http://www.opengis.net/gml", required = true)
+    @XmlAttribute(namespace = "http://www.opengis.net/gml/3.2", required = true)
     protected String id;
 
     /**

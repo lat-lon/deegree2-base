@@ -26,7 +26,7 @@ import javax.xml.bind.annotation.XmlType;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;choice>
  *         &lt;element ref="{http://www.isotc211.org/2005/gmd}EX_Extent"/>
- *         &lt;element ref="{http://www.opengis.net/gml}TimePeriod"/>
+ *         &lt;element ref="{http://www.opengis.net/gml/3.2}TimePeriod"/>
  *       &lt;/choice>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -45,7 +45,7 @@ public class Extent {
 
     @XmlElement(name = "EX_Extent")
     protected EXExtent exExtent;
-    @XmlElement(name = "TimePeriod", namespace = "http://www.opengis.net/gml")
+    @XmlElement(name = "TimePeriod", namespace = "http://www.opengis.net/gml/3.2")
     protected TimePeriod timePeriod;
 
     /**

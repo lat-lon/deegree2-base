@@ -33,7 +33,7 @@ public class ObjectFactory {
 
     private final static QName _LocalName_QNAME = new QName("http://www.isotc211.org/2005/gco", "LocalName");
     private final static QName _CharacterString_QNAME = new QName("http://www.isotc211.org/2005/gco", "CharacterString");
-    private final static QName _EndPosition_QNAME = new QName("http://www.opengis.net/gml", "endPosition");
+    private final static QName _EndPosition_QNAME = new QName("http://www.opengis.net/gml/3.2", "endPosition");
     private final static QName _MDTopicCategoryCode_QNAME = new QName("http://www.isotc211.org/2005/gmd", "MD_TopicCategoryCode");
     private final static QName _Date_QNAME = new QName("http://www.isotc211.org/2005/gco", "Date");
     private final static QName _SVParameterDirection_QNAME = new QName("http://www.isotc211.org/2005/srv", "SV_ParameterDirection");
@@ -41,7 +41,7 @@ public class ObjectFactory {
     private final static QName _URL_QNAME = new QName("http://www.isotc211.org/2005/gmd", "URL");
     private final static QName _Decimal_QNAME = new QName("http://www.isotc211.org/2005/gco", "Decimal");
     private final static QName _DateTime_QNAME = new QName("http://www.isotc211.org/2005/gco", "DateTime");
-    private final static QName _BeginPosition_QNAME = new QName("http://www.opengis.net/gml", "beginPosition");
+    private final static QName _BeginPosition_QNAME = new QName("http://www.opengis.net/gml/3.2", "beginPosition");
     private final static QName _ScopedName_QNAME = new QName("http://www.isotc211.org/2005/gco", "ScopedName");
     private final static QName _Integer_QNAME = new QName("http://www.isotc211.org/2005/gco", "Integer");
 
@@ -1170,7 +1170,7 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://www.opengis.net/gml", name = "endPosition")
+    @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "endPosition")
     public JAXBElement<String> createEndPosition(String value) {
         return new JAXBElement<String>(_EndPosition_QNAME, String.class, null, value);
     }
@@ -1242,7 +1242,7 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link String }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://www.opengis.net/gml", name = "beginPosition")
+    @XmlElementDecl(namespace = "http://www.opengis.net/gml/3.2", name = "beginPosition")
     public JAXBElement<String> createBeginPosition(String value) {
         return new JAXBElement<String>(_BeginPosition_QNAME, String.class, null, value);
     }
